@@ -2,11 +2,9 @@
   "name": "liri-node-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "keys.js",
   "dependencies": {
-    "axios": "^0.19.2",
-    "dotenv": "^8.2.0",
-    "moment": "file:node_modules/moment"
+    "node-spotify-api": "^1.1.1"
   },
   "devDependencies": {},
   "scripts": {
@@ -21,6 +19,5 @@
   "bugs": {
     "url": "https://github.com/zibrahim2046/LIRI_Bot/issues"
   },
-  "homepage": "https://github.com/zibrahim2046/LIRI_Bot#readme",
-  "keywords": []
+  "homepage": "https://github.com/zibrahim2046/LIRI_Bot#readme"
 }
