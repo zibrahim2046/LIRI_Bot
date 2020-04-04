@@ -37,3 +37,30 @@ switch (input1) {
     doThis(input2);
     break;
 }
+
+// Function that loops through bandsintown API and pulls Date, Time, and Location of event
+
+function concertThis(input2) {
+  axios.get("https://rest.bandsintown.com/artists/" + input2 + "/events?app_id=codingbootcamp")
+    .then(function(response) {
+      for (var i = 0; i < response.data.length; i++) {
+        var datetime = response.data[i].datetime; 
+        var concertResults = 
+        "--------------------------------------------------------------------" +
+            "\nVenue Name: " + response.data[i].venue.name + 
+            "\nVenue Location: " + response.data[i].venue.city +
+            "\nDate of the Event: " + moment(datetime, "YYYY-MM-DD").format("MM/DD/YYYY")
+    console.log(concertResults);
+}
+})
+.catch(function (error) {
+console.log(error);
+});
+      }
+ 
+
+
+ 
+
+
+
