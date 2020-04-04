@@ -25,15 +25,15 @@ var input2 = process.argv[3];
 // Using a switch statement with different cases for possible inputs
 switch (input1) {
   case "concert-this":
-    concertThis(value);
+    concertThis(input2);
     break;
   case "spotify-this-song":
-    spotifySong(value);
+    spotifySong(input2);
     break;
   case "movieThis":
-    movieThis(value);
+    movieThis(input2);
     break;
   case "do-what-it-says":
-    doThis(value);
+    doThis(input2);
     break;
 }
