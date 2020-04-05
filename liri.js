@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+
+
 var keys = require("./keys.js");
 
 // Spotify API that pulls from keys.js
@@ -30,11 +32,11 @@ switch (input1) {
   case "spotify-this-song":
     spotifySong(input2);
     break;
-  case "movieThis":
+  case "movie-this":
     movieThis(input2);
     break;
   case "do-what-it-says":
-    doThis(input2);
+    doThis();
     break;
 }
 
@@ -89,6 +91,39 @@ function spotifySong(input2) {
       console.log(err);
   });
 }
+function movieThis(input2) {
+  if(!input2){
+      input2 = "mr nobody";
+  }
+  axios.get("https://www.omdbapi.com/?t=" + input2 + "&y=&plot=short&apikey=trilogy")
+  .then(function(response) {
+          var movieResults = 
+              "--------------------------------------------------------------------" +
+                  "\nMovie Title: " + response.data.Title + 
+                  "\nYear of Release: " + response.data.Year +
+                  "\nIMDB Rating: " + response.data.imdbRating +
+                  "\nRotten Tomatoes Rating: " + response.data.Ratings[1].input2 +
+                  "\nCountry Produced: " + response.data.Country +
+                  "\nLanguage: " + response.data.Language +
+                  "\nPlot: " + response.data.Plot +
+                  "\nActors/Actresses: " + response.data.Actors;
+          console.log(movieResults);
+  })
+  .catch(function (error) {
+      console.log(error);
+  });
+  
+}
 
+function doThis(input2) {
+
+  fs.readFile("random.txt", "utf8", function(error, data) {
+      if (error) {
+          return console.log(error);
+      }
+      var dataArr = data.split(',');
+      spotifySong(dataArr[0], dataArr[1]);
+  })
+}
 
   
